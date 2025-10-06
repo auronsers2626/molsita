@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tiempo junto a ti, mi amor 💙</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="corazones">💙💙💙</div>
+  <h1>Todo el tiempo a tu lado</h1>
+  <div class="contador" id="tiempo"></div>
+
+  <button onclick="mostrarGaleria()">Si amas al coso, pulsa aquí 💘</button>
+
+  <div id="galeria">
+    <div>
+      <img src="1.jpg" alt="Foto juntos" class="foto">
+      <img src="2.png" alt="Foto juntos" class="foto">
+      <img src="3.jpg" alt="Foto juntos" class="foto">
+      <!-- Puedes agregar más fotos aquí -->
+    </div>
+    <div class="mensaje">
+      Estoy inmensamente feliz de haber compartido estos años contigo. Cada segundo a tu lado ha sido un regalo. Te amo mucho mi cosa bella 💙
+    </div>
+  </div>
+
+  <script>
+    const inicio = new Date("February 13, 2022 15:28:00");
+
+    function actualizarContador() {
+      const ahora = new Date();
+      let diferencia = ahora - inicio;
+
+      const segundos = Math.floor(diferencia / 1000);
+      const minutos = Math.floor(segundos / 60);
+      const horas = Math.floor(minutos / 60);
+      const dias = Math.floor(horas / 24);
+      const meses = Math.floor(dias / 30.44);
+      const años = Math.floor(meses / 12);
+
+      const restoMeses = meses % 12;
+      const restoDias = Math.floor(dias % 30.44);
+      const restoHoras = horas % 24;
+      const restoMinutos = minutos % 60;
+      const restoSegundos = segundos % 60;
+
+      document.getElementById("tiempo").innerHTML =
+        `${años} años, ${restoMeses} meses, ${restoDias} días, ${restoHoras} horas, ${restoMinutos} minutos, ${restoSegundos} segundos 💙`;
+    }
+
+    setInterval(actualizarContador, 1000);
+
+    function mostrarGaleria() {
+      document.getElementById("galeria").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
